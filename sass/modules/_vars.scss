@@ -1,0 +1,33 @@
+$primaryColor: #f7a745;
+
+.hidden{
+    display: none !important;
+}
+
+body, input, input::placeholder{
+    font-family: 'Barlow Condensed', sans-serif;
+}
+
+
+// scrollbar
+::-webkit-scrollbar{
+    background: #00000000;
+    border-radius: 50px;
+    display: none;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(223, 222, 222);
+    border-radius: 60px;
+
+    transition: all .2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background: rgb(207, 207, 207);
+}
+
+
+::-webkit-scrollbar-track {
+    background: #c2191900;
+  }
+

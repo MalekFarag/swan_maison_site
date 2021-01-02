@@ -1,0 +1,848 @@
+
+    $mobile: 'mobile';
+    $desktop: 'desktop';
+
+
+.lightbox{
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.header{
+    position: fixed;
+    top: 0px;
+    left: 0;
+    z-index: 9;
+
+    width: 100vw;
+
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+
+    .logoDiv{
+        margin: 0 auto;
+        
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        // opacity: 0;
+        // pointer-events: none;
+
+        h2{
+            color: $primaryColor;
+            font-size: 12px;
+            transform: translateX(6px) translateY(-3px);
+        }
+        h3{
+            color: $primaryColor;
+            letter-spacing: 1px;
+            font-size: 10px;
+            transform: translateX(6px) translateY(-3px);
+        }
+    }
+
+    .logo{
+        background-image: url('../images/logo-gold.svg');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        height: 40px;
+        width: 40px;
+        margin: 0 auto;
+        margin-top: 10px;
+    }
+
+    span{
+        cursor: pointer;
+        display: block;
+        padding: 2px 0px;
+        margin: 8px 15px;
+        font-size: 16px;
+        color: white;
+        
+        border-bottom: 1px solid rgba($color: #000000, $alpha: 0);
+        transition: all .2s ease;
+
+        &:hover{
+            border-bottom: 1px solid $primaryColor;
+            color: $primaryColor;
+        }
+    }
+}
+
+.content{
+
+    .sideBar{
+        position: fixed;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+        .bar{
+            .line{
+                height: 60vh;
+                width: 2px;
+                background-color: $primaryColor;
+                transform: translateX(5px);
+            }
+            .dot{
+                // padding: 10px;
+                position: absolute;
+                
+                cursor: pointer;
+                padding: 5px;
+                transition: all .2s ease;
+                &:hover{
+                    padding: 5px;
+                }
+
+
+                .ball{
+                    width: 13px;
+                    height: 13px;
+                    border-radius: 100%;
+                    background-color: $primaryColor;
+                    position: relative;
+                    top: -8px;
+                    left: -5px;
+                    transition: all .2s ease;
+                    &:hover{
+                        padding: 5px;
+                        transform: translateY(-5px) translateX(-5px);
+                    }
+                }
+            }
+            .d2{
+                transform: translateY(15vh);
+            }
+            .d3{
+                transform: translateY(30vh);
+            }
+            .d4{
+                transform: translateY(45vh);
+            }
+            .d5{
+                transform: translateY(60vh);
+            }
+
+            .on{
+                .ball{
+                    padding: 5px;
+                    transform: translateY(-5px) translateX(-5px);
+                }
+            }
+        }
+        .titles{
+            display: none;
+        }
+    }
+
+    .bg{
+        position: absolute;
+        width: 100vw;
+        height: 70vh;
+        z-index: 0;
+        background-color: rgb(27, 27, 27) !important;
+        .img{
+            width: 100vw;
+            height: 70vh;
+            background-position: center;
+            background-size: cover;
+            
+            position: absolute;
+            background-color: rgb(27, 27, 27) !important;
+        }
+    }
+
+    .hero{
+        // padding-top: 100px;
+        // background-color: gray;
+        height: 100vh;
+
+        border-bottom: solid 1px $primaryColor;
+
+        .bg{
+            height: 100vh !important;
+
+            .img{
+                background-attachment: fixed;
+            }
+            .bg1{
+                animation: fade13 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/hero/h1.jpg');
+                height: 100vh !important;
+            }
+            .bg2{
+                animation: fade23 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/hero/h2.jpg');
+                height: 100vh !important;
+            }
+            .bg3{
+                animation: fade33 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/hero/h3.jpg');
+                height: 100vh !important;
+            }
+
+        }
+        
+
+        .logoDiv{
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+            text-align: center;
+            color: white;
+            filter: drop-shadow(0px 3px 10px #000000ce);
+
+            .logo{
+                background-image: url('../images/logo-white.svg');
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 110px;
+                width: 110px;
+                margin: 0 auto;
+                margin-top: 10px;
+            }
+            h2{
+                font-size: 30px;
+                transform: translateX(4px);
+                letter-spacing: 1px;
+            }
+            h3{
+                font-size: 16px;
+                transform: translateX(4px);
+                letter-spacing: 3px;
+            }
+
+        }
+
+        .indulgeDiv{
+            position: absolute;
+            top: 87%;
+            left: 50%;
+
+            transform:  translateX(-50%);
+
+            text-align: center;
+            color: white;
+            cursor: pointer;
+
+            span{
+                font-size: 26px;
+            }
+            .iconDown{
+                background-image: url('../images/down-arrow.svg');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                width: 100%;
+                height: 30px;
+                margin-top: 15px;
+                animation: hop 3s infinite ease-in-out;
+            }
+            @keyframes hop{
+                0%{
+                    transform: translateY(0px);
+                }
+                50%{
+                    transform: translateY(-5px);
+                }
+                100%{
+                    transform: translateY(0px);
+                }
+            }
+        }
+    }
+
+
+    .activityList{
+        box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.596);
+        position: relative;
+        z-index: 5;
+        .activity{
+            background-color: rgb(43, 43, 43);
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 70vh;
+            color: white;
+            border-bottom: solid 1px $primaryColor;
+
+            .info{
+                padding-top: 30vh;
+                padding-left: 30px;
+                width: 80%;
+                h2{
+                    font-size: 36px;
+                    letter-spacing: 1px;
+                }
+                p{  
+                    margin-top: 5px;
+                    font-size: 12px;
+                    letter-spacing: 2px;
+                    line-height: 28px;
+                }
+            }
+
+            h2, p{
+                filter: drop-shadow(0px 6px 10px #000000);
+            }
+        }
+        .a1{
+            .bg1{
+                animation: fade14 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/food/f1.jpg');
+            }
+            .bg2{
+                animation: fade24 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/food/f2.jpg');
+            }
+            .bg3{
+                animation: fade34 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/food/f3.jpg');
+            }
+            .bg4{
+                animation: fade44 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/food/f4.jpg');
+            }
+        }
+        .a2{
+            .bg1{
+                animation: fade13 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/jet/j1.jpg');
+            }
+            .bg2{
+                animation: fade23 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/jet/j2.jpg');
+            }
+            .bg3{
+                animation: fade33 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/jet/j3.jpg');
+            }
+        }
+
+        .a3{
+            .bg1{
+                animation: fade13 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/giraffe/g1.jpg');
+            }
+            .bg2{
+                animation: fade23 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/giraffe/g2.jpg');
+            }
+            .bg3{
+                animation: fade33 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/giraffe/g3.jpg');
+            }
+        }
+        .a4{
+            .bg1{
+                animation: fade12 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/safari/s1.jpg');
+            }
+            .bg2{
+                animation: fade22 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/safari/s2.jpg');
+            }
+        }
+        .a5{
+            .bg1{
+                animation: fade12 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/elephant/e1.jpg');
+            }
+            .bg2{
+                animation: fade22 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/elephant/e2.jpg');
+            }
+        }
+        .a6{
+            .bg1{
+                animation: fade13 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/hills/h1.jpg');
+            }
+            .bg2{
+                animation: fade23 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/hills/h2.jpg');
+            }
+            .bg3{
+                animation: fade33 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/hills/h3.jpg');
+            }
+        }
+        .a7{
+            .bg1{
+                animation: fade14 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/carlo/c1.jpg');
+            }
+            .bg2{
+                animation: fade24 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/carlo/c2.jpg');
+            }
+            .bg3{
+                animation: fade34 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/carlo/c3.jpg');
+            }
+            .bg4{
+                animation: fade44 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/carlo/c3.jpg');
+            }
+        }
+        .a8{
+            .bg1{
+                animation: fade14 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/watch/w1.jpg');
+            }
+            .bg2{
+                animation: fade24 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/watch/c1.jpg');
+            }
+            .bg3{
+                animation: fade34 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/watch/c2.jpg'); 
+            }
+            .bg4{
+                animation: fade44 18s linear infinite;
+                background-image: url('../images/bg/'+ $mobile + '/watch/m1.jpg'); 
+            }
+
+        }
+    }
+
+    @keyframes fade12{
+        0%{
+            opacity: 1;
+        }
+        20%{
+            opacity: 1;
+        }
+        30%{
+            opacity: 0;
+        }
+        80%{
+            opacity: 0;
+        }
+        90%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes fade22{
+        0%{
+            opacity: 0;
+        }
+        20%{
+            opacity: 0;
+        }
+        30%{
+            opacity: 1;
+        }
+        80%{
+            opacity: 1;
+        }
+        90%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+
+
+    @keyframes fade13{
+        0%{
+            opacity: 1;
+        }
+        20%{
+            opacity: 1;
+        }
+        30%{
+            opacity: 0;
+        }
+        90%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade23{
+        0%{
+            opacity: 0;
+        }
+        20%{
+            opacity: 0;
+        }
+        30%{
+            opacity: 1;
+        }
+        60%{
+            opacity: 1;
+        }
+        70%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+
+    @keyframes fade33{
+        0%{
+            opacity: 0;
+        }
+        60%{
+            opacity: 0;
+        }
+        80%{
+            opacity: 1;
+        }
+        90%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+
+    @keyframes fade14{
+        0%{
+            opacity: 1;
+        }
+        10%{
+            opacity: 0;
+        }
+        80%{
+            opacity: 0;
+        }
+        90%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+    @keyframes fade24{
+        0%{
+            opacity: 0;
+        }
+        10%{
+            opacity: 1;
+        }
+        30%{
+            opacity: 1;
+        }
+        40%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes fade34{
+        0%{
+            opacity: 0;
+        }
+        30%{
+            opacity: 0;
+        }
+        40%{
+            opacity: 1;
+        }
+        60%{
+            opacity: 1;
+        }
+        70%{
+            opacity: 0;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+    @keyframes fade44{
+        0%{
+            opacity: 0;
+        }
+        60%{
+            opacity: 0;
+        }
+        70%{
+            opacity: 1;
+        }
+        90%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+
+    .stitch{
+        background-color: rgb(27, 27, 27);
+        border-top: solid 2px $primaryColor;
+        border-bottom: solid 2px $primaryColor;
+
+        span{
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 11px;
+            padding: 3px 0;
+            padding-bottom: 5px;
+            color: $primaryColor;
+        }
+    }
+
+    .endDiv{
+        height: 100vh;
+        background-color: black;
+        color: $primaryColor;
+        .info{
+            position: relative;
+            top: 50vh;
+            transform: translateY(-50%);
+            text-align: center;
+            .logoDiv{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                // opacity: 0;
+                // pointer-events: none;
+
+                .logo{
+                    background-image: url('../images/logo-gold.svg');
+                    background-position: center;
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    height: 40px;
+                    width: 40px;
+                    margin: 0 auto;
+                    
+                    transform: translateX(-6px);
+                }
+        
+                h2{
+                    color: $primaryColor;
+                    font-size: 12px;
+                    
+                }
+                h3{
+                    color: $primaryColor;
+                    letter-spacing: 1px;
+                    font-size: 10px;
+                }
+            }
+
+           .elite{
+               font-size: 24px;
+               letter-spacing: 1px;
+               margin-top: 20px;
+           }
+            
+        }
+
+        .contactBut{
+            cursor: pointer;
+            padding: 3px 5px;
+            border-bottom: solid 2px $primaryColor;
+            width: min-content;
+            margin: 0 auto;
+
+            a{
+                color: $primaryColor;
+                text-decoration: none;
+                letter-spacing: 1px;
+                font-size: 20px;
+            }
+            
+
+            position: relative;
+            top: 50vh;
+            transform: translateY(-50%);
+            
+            transition: all .2s ease;
+            // &:hover{
+            //  background-color: $primaryColor;
+            //  color: black;
+            //  font-weight: bold;
+            // }
+        }
+
+        .copyDiv{
+                position: relative;
+                top: 90vh;
+            .copy{
+                display: block;
+                
+                text-align: center;
+                
+                // transform: translateY(-50%);
+                font-size: 11px;
+                margin: 10px auto;
+                a{
+                    color: $primaryColor !important;
+                }
+            }
+            .copy:first-child{
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+        }
+
+        
+    }
+    
+}
+
+@media only screen and (min-width: 450px){
+
+        .content{
+
+            .hero{
+                .bg{
+                    .bg1{
+                        
+                        background-image: url('../images/bg/'+ $desktop + '/hero/h1.jpg');
+                        
+                    }
+                    .bg2{
+                        
+                        background-image: url('../images/bg/'+ $desktop + '/hero/h2.jpg');
+                        
+                    }
+                    .bg3{
+                        
+                        background-image: url('../images/bg/'+ $desktop + '/hero/h3.jpg');
+                        
+                    }
+        
+                }
+            }
+
+            .activityList{
+
+                .activity{
+                    .info{
+                        h2{
+                            font-size: 42px;
+                        }
+                    }
+                }
+
+                .a1{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/food/f1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/food/f2.jpg');
+                    }
+                    .bg3{
+                        background-image: url('../images/bg/'+ $desktop + '/food/f3.jpg');
+                    }
+                    .bg4{
+                        background-image: url('../images/bg/'+ $desktop + '/food/f4.jpg');
+                    }
+                }
+                .a2{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/jet/j1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/jet/j2.jpg');
+                    }
+                    .bg3{
+                        background-image: url('../images/bg/'+ $desktop + '/jet/j3.jpg');
+                    }
+                }
+        
+                .a3{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/giraffe/g1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/giraffe/g2.jpg');
+                    }
+                    .bg3{
+                        background-image: url('../images/bg/'+ $desktop + '/giraffe/g3.jpg');
+                    }
+                }
+                .a4{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/safari/s1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/safari/s2.jpg');
+                    }
+                }
+                .a5{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/elephant/e1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/elephant/e2.jpg');
+                    }
+                }
+                .a6{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/hills/h1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/hills/h2.jpg');
+                    }
+                    .bg3{
+                        background-image: url('../images/bg/'+ $desktop + '/hills/h3.jpg');
+                    }
+                }
+                .a7{
+                    .bg1{
+                        background-image: url('../images/bg/'+ $desktop + '/carlo/c1.jpg');
+                    }
+                    .bg2{
+                        background-image: url('../images/bg/'+ $desktop + '/carlo/c2.jpg');
+                    }
+                    .bg3{
+                        background-image: url('../images/bg/'+ $desktop + '/carlo/c3.jpg');
+                    }
+                    .bg4{
+                        background-image: url('../images/bg/'+ $desktop + '/carlo/c3.jpg');
+                    }
+                }
+                .a8{
+                    .bg1{
+                        animation: fade14 18s linear infinite;
+                        background-image: url('../images/bg/'+ $desktop + '/watch/w1.jpg');
+                    }
+                    .bg2{
+                        animation: fade24 18s linear infinite;
+                        background-image: url('../images/bg/'+ $desktop + '/watch/c1.jpg');
+                    }
+                    .bg3{ 
+                        animation: fade34 18s linear infinite;
+                        background-image: url('../images/bg/'+ $desktop + '/watch/c2.jpg');
+                    }
+                    .bg4{ 
+                        animation: fade44 18s linear infinite;
+                        background-image: url('../images/bg/'+ $desktop + '/watch/m1.jpg');
+                    }
+        
+        
+                }
+
+
+            }
+        
+        }
+    
+    
+}
